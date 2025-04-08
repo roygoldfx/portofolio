@@ -10,195 +10,86 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #f9f9f9;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Header and Navigation */
-header {
-    background-color: #333;
+body.dark-mode {
+    background-color: #121212;
     color: #fff;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+body.dark-mode .hero {
+    background-color: #1e1e1e;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
+body.dark-mode .about, body.dark-mode .skills, body.dark-mode .projects {
+    background-color: #1e1e1e;
 }
 
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
+/* Particles Background */
+.particles-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
-.nav-links a:hover {
-    color: #ff6347;
-}
-
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.menu-toggle span {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 3px 0;
-}
-
-/* Hero Section */
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 4rem 2rem;
-    background-color: #ff6347;
-    color: #fff;
-    text-align: center;
-}
-
-.hero-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-}
-
-.profile-img {
-    max-width: 200px;
-    border-radius: 50%;
-}
-
-.btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background-color: #fff;
-    color: #ff6347;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #ff9980;
-}
-
-/* About Section */
-.about {
+/* Skills Section */
+.skills {
     padding: 4rem 2rem;
     text-align: center;
     background-color: #fff;
 }
 
-/* Projects Section */
-.projects {
-    padding: 4rem 2rem;
-    text-align: center;
-}
-
-.project-grid {
+.skill-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
 
-.project-card {
-    background-color: #fff;
-    padding: 1rem;
+.progress-bar {
+    background-color: #e0e0e0;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-top: 0.5rem;
 }
 
-.project-card img {
-    max-width: 100%;
-    border-radius: 5px;
-}
-
-/* Contact Section */
-.contact {
-    padding: 4rem 2rem;
-    text-align: center;
+.progress {
+    height: 10px;
     background-color: #ff6347;
-    color: #fff;
+    animation: progress-fill 1.5s ease-in-out;
 }
 
-.contact form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.contact input, .contact textarea {
-    padding: 0.75rem;
-    border: none;
-    border-radius: 5px;
-}
-
-.contact button {
-    padding: 0.75rem;
-    background-color: #fff;
-    color: #ff6347;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.contact button:hover {
-    background-color: #ff9980;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #333;
-    color: #fff;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: #333;
+@keyframes progress-fill {
+    from {
+        width: 0;
+    }
+    to {
         width: 100%;
-        text-align: center;
     }
+}
 
-    .nav-links.active {
-        display: flex;
-    }
+/* Project Hover Effect */
+.project-card {
+    position: relative;
+    overflow: hidden;
+}
 
-    .menu-toggle {
-        display: flex;
-    }
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
 
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .profile-img {
-        margin-top: 1rem;
-    }
+.project-card:hover .overlay {
+    transform: translateY(0);
 }
