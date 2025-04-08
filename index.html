@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Ahmad Royhan</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -15,8 +17,10 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">Tentang Saya</a></li>
                 <li><a href="#projects">Proyek</a></li>
+                <li><a href="#skills">Keahlian</a></li>
                 <li><a href="#contact">Kontak</a></li>
             </ul>
+            <button id="dark-mode-toggle">🌙</button>
             <div class="menu-toggle" id="mobile-menu">
                 <span></span>
                 <span></span>
@@ -25,14 +29,15 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Parallax -->
     <section id="home" class="hero">
+        <div id="particles-js" class="particles-background"></div>
         <div class="hero-content">
             <h1>Halo, saya Roy!</h1>
             <p>Saya seorang pengembang web berusia 25 tahun.</p>
             <a href="#about" class="btn">Tentang Saya</a>
         </div>
-        <img src="assets/77DFE6EE-3921-49A8-B591-B3B073102E53.jpeg" alt="Foto Profil Roy" class="profile-img">
+        <img src="assets/profile.jpg" alt="Foto Profil Roy" class="profile-img">
     </section>
 
     <!-- About Section -->
@@ -41,24 +46,55 @@
         <p>Hai, nama lengkap saya Ahmad Royhan, biasa dipanggil Roy. Saya berusia 25 tahun dan memiliki pengalaman dalam pengembangan web. Saya suka belajar teknologi baru dan membuat solusi digital yang inovatif.</p>
     </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2>Keahlian Saya</h2>
+        <div class="skill-grid">
+            <div class="skill-item">
+                <h3>HTML & CSS</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 95%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <h3>JavaScript</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 85%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <h3>React.js</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 75%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <h2>Proyek Saya</h2>
         <div class="project-grid">
             <div class="project-card">
                 <img src="assets/project1.jpg" alt="Proyek 1">
+                <div class="overlay">
+                    <p>Website e-commerce modern dengan fitur keranjang belanja.</p>
+                </div>
                 <h3>Website Toko Online</h3>
-                <p>Sebuah website e-commerce modern dengan fitur keranjang belanja dan pembayaran online.</p>
             </div>
             <div class="project-card">
                 <img src="assets/project2.jpg" alt="Proyek 2">
+                <div class="overlay">
+                    <p>Aplikasi catatan sederhana untuk manajemen tugas harian.</p>
+                </div>
                 <h3>Aplikasi Catatan</h3>
-                <p>Aplikasi catatan sederhana yang memungkinkan pengguna menyimpan dan mengelola tugas harian mereka.</p>
             </div>
             <div class="project-card">
                 <img src="assets/project3.jpg" alt="Proyek 3">
+                <div class="overlay">
+                    <p>Dashboard admin untuk melacak data perusahaan secara real-time.</p>
+                </div>
                 <h3>Dashboard Admin</h3>
-                <p>Dashboard admin yang dirancang untuk membantu tim manajemen melacak data perusahaan secara real-time.</p>
             </div>
         </div>
     </section>
@@ -78,5 +114,25 @@
     <footer>
         <p>&copy; 2023 Ahmad Royhan. Hak Cipta Dilindungi.</p>
     </footer>
+
+    <!-- JavaScript for Dark Mode -->
+    <script>
+        const toggleButton = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                toggleButton.textContent = '☀️';
+            } else {
+                toggleButton.textContent = '🌙';
+            }
+        });
+
+        // Initialize Particles.js
+        particlesJS.load('particles-js', 'particles.json', function() {
+            console.log('callback - particles.js config loaded');
+        });
+    </script>
 </body>
 </html>
